@@ -5,14 +5,16 @@ module.exports = function repeater(str, options) {
   let defaultSeparator = '+';
   let defaultAddition = '';
   let defaultAdditionTimes = 0;
-  let defaultadditionSeparator = '';
+  let defaultadditionSeparator = '|';
+  console.log(str);
+  console.log(options)
   if (str === null) {
     str = 'null'
   }
   if (str === true) {
     str = 'true'
   }
-  if (options['repeatTimes'] !== undefined ) {
+  if (options['repeatTimes'] !== undefined) {
     defaultRepeatTimes = options['repeatTimes'] - 1
   }
   if (options['separator'] !== undefined) {
@@ -30,6 +32,6 @@ module.exports = function repeater(str, options) {
   let zeroPattern = str + defaultAddition;
   let firstPattern = `${defaultadditionSeparator}${defaultAddition}`.repeat(defaultAdditionTimes);
   let secondPattern = `${defaultSeparator}${zeroPattern}${firstPattern}`.repeat(defaultRepeatTimes);
-  
+
   return zeroPattern + firstPattern + secondPattern;
-};  
+};
